@@ -1,6 +1,9 @@
 @extends('layout/side-menu')
 
 @section('subhead')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>{{ __('Patients.Patient File') }}</title>
     <style>
         .timeline {

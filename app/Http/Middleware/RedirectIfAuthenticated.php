@@ -30,6 +30,8 @@ class RedirectIfAuthenticated
                         return redirect(RouteServiceProvider::DOCTOR_HOME);
                     case 3: // مريض
                         return redirect(RouteServiceProvider::PATIENT_HOME);
+                    case 4: // مريض
+                            return redirect(RouteServiceProvider::RAY_EMPLOYEE_HOME);
                     default:
                         return redirect()->route('login');
                 }

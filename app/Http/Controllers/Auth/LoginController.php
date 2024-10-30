@@ -54,7 +54,7 @@ class LoginController extends Controller
             case 3:
                 return redirect()->route('dashboard-overview-3');
             case 4:
-                return redirect()->route('dashboard-overview-4');
+                return redirect()->route('dashboard-ray-emplyee');
             default:
                 return redirect()->route('login')->with('error', 'Role ID is invalid.');
         }

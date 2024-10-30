@@ -268,15 +268,47 @@ class SideMenu
 
         return [
             'devider',
-            'ray-diagnostics' => [
-                'icon' => 'info',
-                'title' => 'Ray Diagnostics',
-                'route_name' => 'dashboard-overview-4',
-                'params' => [
-                    'layout' => 'side-menu'
+            'Consultations' => [
+                'icon' => 'users',
+                'title' => 'Diagnostics',
+                'sub_menu' => [
+                    'Diagnostics-List' => [
+                        'icon' => '',
+                        'route_name' => 'invoices.index',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => 'Diagnostics List'
+                    ],
+
+                    'C-Diagnostics-List' => [
+                        'icon' => '',
+                        'route_name' => 'completedInvoices',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => ' Completed Diagnostics '
+                    ],
+                    
+                    'Reviews-List' => [
+                        'icon' => '',
+                        'route_name' => 'reviewInvoices',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => 'Reviews List'
+                    ],
+                
+
                 ],
+            
             ],
         ];
+
+        
+
+                        
+                    
 
     }
 }

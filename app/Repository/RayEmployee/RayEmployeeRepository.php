@@ -83,16 +83,32 @@ class RayEmployeeRepository implements RayEmployeeRepositoryInterface
         return redirect()->back();
     }
 
+    // public function destroy($id)
+    // {
+    //     try {
+    //         RayEmployee::destroy($id);
+    //         session()->flash('delete');
+    //         return redirect()->back();
+    //     }
+
+    //     catch (\Exception $e) {
+    //         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+    //     }
+    // }
+
+
     public function destroy($id)
     {
         try {
-            RayEmployee::destroy($id);
-            session()->flash('delete');
-            return redirect()->back();
-        }
-
-        catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            $employee = RayEmployee::findOrFail($id);
+            $employee->delete(); 
+    
+            return response()->json(['success' => 'employee deleted successfully.']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'There was an error deleting the section: ' . $e->getMessage()], 400);
         }
     }
+
+
+    
 }

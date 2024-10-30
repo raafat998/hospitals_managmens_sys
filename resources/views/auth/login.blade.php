@@ -102,7 +102,7 @@
             adminHome: "{{ route('dashboard-overview-1') }}", 
             doctorHome: "{{ route('alert1') }}", 
             patientHome: "{{ route('dashboard-overview-3') }}" 
-            RayEmployeeHome: "{{ route('dashboard-overview-4') }}" 
+            RayEmployeeHome: "{{ route('dashboard-ray-emplyee') }}" 
 
         };
 

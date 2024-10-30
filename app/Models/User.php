@@ -64,6 +64,6 @@ class User extends Authenticatable
 
     public function employee()
     {
-        return $this->hasOne(Patient::class);
+        return $this->hasOne(RayEmployee::class);
     }
 }
