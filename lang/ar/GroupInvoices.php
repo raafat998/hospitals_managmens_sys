@@ -1,0 +1,57 @@
+<?php
+
+return [
+    'success_save' => 'تم حفظ البيانات بنجاح.',
+    'success_update' => 'تم تعديل البيانات بنجاح.',
+    'select_service' => '-- اختار الخدمة --',
+    'select_from_list' => '-- اختار من القائمة --',
+    'patient_name' => 'اسم المريض',
+    'doctor_name' => 'اسم الدكتور',
+    'section' => 'القسم',
+    'invoice_type' => 'نوع الفاتورة',
+    'cash' => 'نقدي',
+    'on_credit' => 'اجل',
+    'confirm_data' => 'تاكيد البيانات',
+    'service_name' => 'اسم الخدمة',
+    'service_price' => 'سعر الخدمة',
+    'discount_value' => 'قيمة الخصم',
+    'tax_rate' => 'نسبة الضريبة',
+    'tax_value' => 'قيمة الضريبة',
+    'total_with_tax' => 'الاجمالي مع الضريبة',
+    'add_invoice' => 'اضافة فاتورة جديدة',
+ 
+    'invoice_date' => 'تاريخ الفاتورة',
+   
+    'actions' => 'العمليات',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
+    'invoice_title' => 'فاتورة - تصميم احترافي',
+    'single_service_invoice' => ' فاتورة مجموعة خدمات',
+    'patient_details' => 'تفاصيل المريض',
+    'section_name' => 'اسم القسم',
+    'invoice_type_cash' => 'نقدي',
+    'invoice_type_credit' => 'اجل',
+    'receipt_number' => 'رقم الإيصال',
+    'service_description' => 'وصف الخدمة',
+    'quantity' => 'الكمية',
+    'price' => 'السعر',
+    'total' => 'المجموع',
+    'total_amount' => 'الاجمالي',
+    'bank_transfer' => 'التحويل البنكي',
+    'payment_method' => 'طريقة الدفع',
+    'total_amount_due' => 'المبلغ الإجمالي',
+    'including_tax' => 'شامل الضرائب',
+    'export_to_word' => 'تصدير إلى Word',
+    'export_to_pdf' => 'طباعة',
+
+
+
+    'account_number' => 'رقم الحساب',
+    'bank_code' => 'كود البنك',
+    'email' => 'البريد الإلكتروني',
+    'phone' => 'رقم الهاتف',
+    'gender' => 'الجنس',
+    'birth_date' => 'تاريخ الميلاد',
+    'blood_group' => 'فصيلة الدم',
+  
+];

@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'create_new_group' => 'إنشاء مجموعة جديدة',
+    'back' => 'رجوع',
+    'group_name' => 'اسم المجموعة',
+    'enter_group_name' => 'أدخل اسم المجموعة',
+    'notes' => 'ملاحظات',
+    'enter_notes' => 'أدخل الملاحظات',
+    'add_sub_service' => 'إضافة خدمة فرعية',
+    'service_name' => 'اسم الخدمة',
+    'quantity' => 'الكمية',
+    'actions' => 'الإجراءات',
+    'select_service' => 'اختر خدمة',
+    'enter_quantity' => 'أدخل الكمية',
+    'edit' => 'تعديل',
+    'confirm' => 'تأكيد',
+    'remove' => 'إزالة',
+    'total' => 'الإجمالي',
+    'discount_value' => 'قيمة الخصم',
+    'enter_discount_value' => 'أدخل قيمة الخصم',
+    'tax_rate' => 'معدل الضريبة',
+    'enter_tax_rate' => 'أدخل معدل الضريبة',
+    'total_with_tax' => 'الإجمالي مع الضريبة',
+    'save' => 'حفظ',
+];
