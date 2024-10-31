@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Dashboard_Doctor\RayController;
 use App\Http\Controllers\Dashboard_Doctor\InvoiceController;
-
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard_Doctor\DiagnosticController;
 use App\Http\Controllers\Dashboard_Doctor\PatientDetailsController;
@@ -16,10 +15,11 @@ use App\Http\Controllers\Dashboard_Doctor\PatientDetailsController;
 
 
     
+    
     Route::group(['middleware' => ['redirect.doctor','check.doctor']], function () {
         Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
-            Route::get('/doctor2/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview_doctor'])->name('alert1');
+            Route::get('/doctor2/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview1'])->name('alert1');
 
 
                         //############################# invoices route ##########################################
@@ -61,7 +61,12 @@ use App\Http\Controllers\Dashboard_Doctor\PatientDetailsController;
 
                   
                         
+                        Route::group(['middleware' => ['check.ray.employee']], function () {
 
+                            Route::get('/ray_emplyee/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview_doctor'])->name('dashboard-overview-4');
+
+                            // أضف أي Routes أخرى تحتاج إلى توجيه الطبيب
+                        });
 
                         //################################ end ray employee #####################################
 

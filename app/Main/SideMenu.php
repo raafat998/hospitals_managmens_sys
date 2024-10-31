@@ -274,30 +274,23 @@ class SideMenu
                 'sub_menu' => [
                     'Diagnostics-List' => [
                         'icon' => '',
-                        'route_name' => 'invoices.index',
+                        'route_name' => 'invoices_ray_employee.index',
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Diagnostics List'
+                        'title' => 'Diagnostics in progress List'
                     ],
 
                     'C-Diagnostics-List' => [
                         'icon' => '',
-                        'route_name' => 'completedInvoices',
+                        'route_name' => 'invoices_ray_employee.create',
                         'params' => [
                             'layout' => 'side-menu'
                         ],
                         'title' => ' Completed Diagnostics '
                     ],
                     
-                    'Reviews-List' => [
-                        'icon' => '',
-                        'route_name' => 'reviewInvoices',
-                        'params' => [
-                            'layout' => 'side-menu'
-                        ],
-                        'title' => 'Reviews List'
-                    ],
+
                 
 
                 ],

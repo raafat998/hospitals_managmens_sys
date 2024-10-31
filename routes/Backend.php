@@ -16,7 +16,7 @@ use App\Http\Controllers\Dashboard\Single_service_Controller;
 
 Route::group(['middleware' => ['redirect.Patient']], function () {
 
-    Route::get('/patient/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview1'])->name('dashboard-overview-3');
+    Route::get('/patient/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview_Patient'])->name('dashboard-overview-3');
 
     // أضف أي Routes أخرى تحتاج إلى توجيه الطبيب
 });
@@ -35,7 +35,7 @@ Route::group(['middleware' => ['redirect.Patient']], function () {
                    
                     Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
-                        Route::get('/admin/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview1'])->name('dashboard-overview-1');
+                        Route::get('/admin/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview_admin'])->name('dashboard-overview-1');
                         Route::patch('/User-update/{user}', [UserController::class, 'update'])->name('users.update');
                         Route::get('User-edit/{user}', [UserController::class, 'edit'])->name('users.edit');
 

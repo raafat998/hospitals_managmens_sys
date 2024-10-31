@@ -13,9 +13,9 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function dashboardOverview1()
+    public function dashboardOverview_admin()
     {
-        return view('pages/dashboard-overview-1', [
+        return view('pages/dashboard-overview-admin', [
             // Specify the base layout.
             // Eg: 'side-menu', 'simple-menu', 'top-menu', 'login'
             // The default value is 'side-menu'
@@ -23,6 +23,39 @@ class PageController extends Controller
             // 'layout' => 'side-menu'
         ]);
     }
+
+    public function dashboardOverview_doctor()
+    {
+        return view('pages/dashboard-overview-doctor', [
+            // Specify the base layout.
+            // Eg: 'side-menu', 'simple-menu', 'top-menu', 'login'
+            // The default value is 'side-menu'
+
+            // 'layout' => 'side-menu'
+        ]);
+    }
+    public function dashboardOverview_patient()
+    {
+        return view('pages/dashboard-overview-patient', [
+            // Specify the base layout.
+            // Eg: 'side-menu', 'simple-menu', 'top-menu', 'login'
+            // The default value is 'side-menu'
+
+            // 'layout' => 'side-menu'
+        ]);
+    }
+
+    public function dashboardOverview_employee()
+    {
+        return view('pages/dashboard-overview-employee', [
+            // Specify the base layout.
+            // Eg: 'side-menu', 'simple-menu', 'top-menu', 'login'
+            // The default value is 'side-menu'
+
+            // 'layout' => 'side-menu'
+        ]);
+    }
+
 
     /**
      * Show specified view.

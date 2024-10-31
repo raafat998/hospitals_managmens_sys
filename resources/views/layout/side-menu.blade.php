@@ -17,7 +17,7 @@
                     Rubick
                 </span>
             </a>
-            <div class="side-nav__devider my-6"></div>
+            <div class=" my-6"></div>
             <ul>
                 @foreach ($side_menu as $menuKey => $menu)
                     @if ($menu == 'devider')

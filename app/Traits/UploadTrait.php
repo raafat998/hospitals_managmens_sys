@@ -2,9 +2,10 @@
 
 namespace App\Traits;
 
-use Illuminate\Support\Str; 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str; 
+use Illuminate\Support\Facades\Storage;
 
 trait UploadTrait{
 
@@ -37,7 +38,25 @@ trait UploadTrait{
 
     }
 
+    public function verifyAndStoreImageForeach($varforeach , $foldername , $disk, $imageable_id, $imageable_type) {
 
+        // insert Image
+        $Image = new Image();
+        $Image->filename = $varforeach->getClientOriginalName();
+        $Image->imageable_id = $imageable_id;
+        $Image->imageable_type = $imageable_type;
+        $Image->save();
+        return $varforeach->storeAs($foldername, $varforeach->getClientOriginalName(), $disk);
+    }
+
+
+
+    public function Delete_attachment($disk,$path,$id){
+
+        Storage::disk($disk)->delete($path);
+        image::where('imageable_id',$id)->delete();
+
+    }
 
 
 }

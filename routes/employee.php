@@ -18,10 +18,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
 Route::group(['middleware' => ['check.ray.employee','redirect.employee']], function () {
 
-    Route::get('/ray_emplyee/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview1'])->name('dashboard-ray-emplyee');
+    Route::get('/ray_emplyee/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview_employee'])->name('dashboard-ray-emplyee');
 
     //############################# invoices route ##########################################
-    Route::get('invoices', [InvoiceController::class,'index'])->name('invoices.index');
+    Route::resource('invoices_ray_employee', InvoiceController::class);
     //############################# end invoices route ######################################
 
 
