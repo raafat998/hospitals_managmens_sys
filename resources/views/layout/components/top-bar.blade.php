@@ -126,8 +126,11 @@
                 <img alt="Profile Image" src="{{ Auth::user()->profile_image ? asset(Auth::user()->profile_image) : asset('build/assets/images/' . $fakers[9]['photos'][0]) }}">
             @elseif(Auth::user()->role_id == 2)
                 <img alt="Profile Image" src="{{ Auth::user()->doctor->image ? asset('storage/properties/doctors/' . Auth::user()->doctor->image->filename) : asset('build/assets/images/' . $fakers[9]['photos'][0]) }}">
-                @elseif(Auth::user()->role_id == 4)
-                <img alt="Profile Image" src="{{ Auth::user()->employee->image ? asset('storage/properties/employee/' . Auth::user()->employee->image->filename) : asset('build/assets/images/' . $fakers[9]['photos'][0]) }}">            
+            @elseif(Auth::user()->role_id == 4)
+                <img alt="Profile Image" src="{{ Auth::user()->employee->image ? asset('storage/properties/ray_employee/' . Auth::user()->employee->image->filename) : asset('build/assets/images/' . $fakers[9]['photos'][0]) }}">            
+                @elseif(Auth::user()->role_id == 5)
+                <img alt="Profile Image" src="{{ Auth::user()->LaboratorieEmployee->image ? asset('storage/properties/lab_employee/' . Auth::user()->LaboratorieEmployee->image->filename) : asset('build/assets/images/' . $fakers[9]['photos'][0]) }}">            
+               
                 @else
             <h1>hhhhh</h1>
             @endif

@@ -7,10 +7,12 @@ use App\Http\Controllers\Dashboard\PatientController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\AmbulanceController;
 use App\Http\Controllers\Dashboard\InsuranceController;
+use App\Http\Controllers\Dashboard\RayEmployeeController;
 use App\Http\Controllers\Dashboard\PaymentAccountController;
 use App\Http\Controllers\Dashboard\ReceiptAccountController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Single_service_Controller;
+use App\Http\Controllers\Dashboard\LaboratorieEmployeeController;
 
 // #################### dashboard patients ######################################################################################
 
@@ -101,6 +103,20 @@ Route::group(['middleware' => ['redirect.Patient']], function () {
 
                     //############################# end Payment route ######################################
                     
+                    
+                    //############################# RayEmployee route ##########################################
+
+                    Route::resource('ray_employee', RayEmployeeController::class);
+
+                    //############################# end RayEmployee route ######################################
+
+
+                    //############################# laboratorie_employee route ##########################################
+
+                     Route::resource('laboratorie_employee', LaboratorieEmployeeController::class);
+
+                    //############################# end laboratorie_employee route ######################################
+
 
                     //############################# group_invoices route ##########################################
 
@@ -118,6 +134,10 @@ Route::group(['middleware' => ['redirect.Patient']], function () {
                     Route::put('/Doctor/{id}/status', [DoctorController::class, 'updateStatus'])->name('DoctorupdateStatus');
                     Route::put('/service/{id}/update-status', [Single_service_Controller::class, 'updateStatus'])->name('ServiceupdateStatus');
                     Route::put('/Ambulance/{id}/status', [AmbulanceController::class, 'updateStatus'])->name('AmbulanceStatus');
+                    Route::put('/employee/{id}/status', [RayEmployeeController::class, 'updateStatus'])->name('EmployeeUpdateStatus');
+                    Route::put('/lab_employee/{id}/status', [LaboratorieEmployeeController::class, 'updateStatus'])->name('lab_EmployeeUpdateStatus');
+
+
 
                 });
 

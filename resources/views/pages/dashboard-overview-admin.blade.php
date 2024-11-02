@@ -3,6 +3,7 @@
 
 @section('subhead')
     <title>Dashboard - Midone - Tailwind HTML Admin Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection
 
 @section('subcontent')
@@ -22,15 +23,14 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="shopping-cart" class="report-box__icon text-primary"></i>
-                                        <div class="ml-auto">
+                                        <i class="fa-solid fa-bandage fa-beat fa-3x" style="color: #FFD43B;"></i>                                        <div class="ml-auto">
                                             <div class="report-box__indicator bg-success tooltip cursor-pointer" title="33% Higher than last month">
                                                 33% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">4.710</div>
-                                    <div class="text-base text-slate-500 mt-1">Item Sales</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Service::count()}}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Single Service</div>
                                 </div>
                             </div>
                         </div>
@@ -38,15 +38,14 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="credit-card" class="report-box__icon text-pending"></i>
-                                        <div class="ml-auto">
+                                        <i class="fa-solid fa-heart-pulse fa-beat fa-3x" style="color: #d71919;"></i>                                       <div class="ml-auto">
                                             <div class="report-box__indicator bg-danger tooltip cursor-pointer" title="2% Lower than last month">
                                                 2% <i data-lucide="chevron-down" class="w-4 h-4 ml-0.5"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">3.721</div>
-                                    <div class="text-base text-slate-500 mt-1">New Orders</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Group::count()}}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Services Group</div>
                                 </div>
                             </div>
                         </div>
@@ -54,15 +53,14 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="monitor" class="report-box__icon text-warning"></i>
-                                        <div class="ml-auto">
+                                        <i class="fa-solid fa-user-doctor fa-beat fa-3x" style="color: #63E6BE;"></i>                                        <div class="ml-auto">
                                             <div class="report-box__indicator bg-success tooltip cursor-pointer" title="12% Higher than last month">
                                                 12% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">2.149</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Products</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Doctor::count()}}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Doctors</div>
                                 </div>
                             </div>
                         </div>
@@ -70,20 +68,72 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="user" class="report-box__icon text-success"></i>
-                                        <div class="ml-auto">
+                                        <i class="fa-solid fa-bed-pulse fa-beat fa-3x" style="color: #db0f00;"></i>                                        <div class="ml-auto">
                                             <div class="report-box__indicator bg-success tooltip cursor-pointer" title="22% Higher than last month">
                                                 22% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">152.040</div>
-                                    <div class="text-base text-slate-500 mt-1">Unique Visitor</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Patient::count()}}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Ptient</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+{{-- ------------------------------------------------------------------------------------------------ --}}
+<div class="col-span-12 mt-8">
+
+    <div class="grid grid-cols-12 gap-6 mt-5">
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="report-box zoom-in">
+                <div class="box p-5">
+                    <div class="flex">
+                        <i class="fa-solid fa-hospital fa-beat fa-3x" style="color: #3339f0;"></i>                                       <div class="ml-auto">
+                            <div class="report-box__indicator bg-success tooltip cursor-pointer" title="33% Higher than last month">
+                                33% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Section::count()}}</div>
+                    <div class="text-base text-slate-500 mt-1">Total Section</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="report-box zoom-in">
+                <div class="box p-5">
+                    <div class="flex">
+                        <i class="fa-solid fa-file-invoice-dollar fa-beat fa-3x" style="color: #56c869;"></i>
+                                        <div class="ml-auto">
+                            <div class="report-box__indicator bg-danger tooltip cursor-pointer" title="2% Lower than last month">
+                                2% <i data-lucide="chevron-down" class="w-4 h-4 ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Invoice::where('invoice_type',1)->count()}}</div>
+                    <div class="text-base text-slate-500 mt-1">Total Single Invoice</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="report-box zoom-in">
+                <div class="box p-5">
+                    <div class="flex">
+                        <i class="fa-solid fa-file-invoice-dollar fa-beat fa-3x" style="color: #63E6BE;"></i>                                        <div class="ml-auto">
+                            <div class="report-box__indicator bg-success tooltip cursor-pointer" title="12% Higher than last month">
+                                12% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Invoice::where('invoice_type',2)->count()}}</div>
+                    <div class="text-base text-slate-500 mt-1">Total Group Invoice</div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
                 <!-- END: General Report -->
                 <!-- BEGIN: Sales Report -->
                 <div class="col-span-12 lg:col-span-6 mt-8">

@@ -1,0 +1,81 @@
+@extends('layout/side-menu')
+
+
+
+@section('subcontent')
+<div class="intro-y box">
+    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
+        <h2 class="font-medium text-base mr-auto">{{ __('lab_employee.Edit lab_Employee') }}</h2>
+        <a class="btn btn-primary" href="{{ route('laboratorie_employee.index') }}">Back</a>
+    </div>
+
+    <div id="input" class="p-5">
+        <div class="preview">
+            <form action="{{ route('laboratorie_employee.update', $lab_employee->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
+                <!-- Name Field -->
+                <div>
+                    <label for="name" class="form-label">{{ trans('lab_employee.name') }}</label>
+                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $lab_employee->name }}"   required>
+                    @error('name')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <!-- Email Field -->
+                <div class="mt-3">
+                    <label for="email" class="form-label">{{ trans('lab_employee.email') }}</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $lab_employee->email }}"   required>
+                    @error('email')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <!-- Phone Field -->
+                <div class="mt-3">
+                    <label for="phone" class="form-label">{{ trans('lab_employee.phone') }}</label>
+                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $lab_employee->phone }}"  required>
+                    @error('phone')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+
+
+
+                <!-- Photo Field -->
+                <div class="mt-3">
+                    <label for="photo" class="form-label">{{ trans('lab_employee.photo') }}</label>
+                    <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" accept="image/*" onchange="loadFile(event)">
+                    <img id="output" style="border-radius:50%" width="150px" height="150px"/>
+                    @error('photo')
+                        <span class="invalid-feedback">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-5">
+                    <button type="submit" class="btn btn-primary">{{ trans('lab_employee.submit') }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function loadFile(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
+@endsection

@@ -200,18 +200,30 @@ class UserController extends Controller
     /**
      * Remove the specified user from storage.
      */
-    public function destroy($id)
+//     public function destroy($id)
+// {
+//     $user = User::find($id);
+
+//     if (!$user) {
+//         return response()->json(['error' => 'User not found.'], 404);
+//     }
+
+//     $user->delete();
+//     return response()->json(['success' => 'User deleted successfully.']);
+// }
+
+public function destroy($id)
 {
-    $user = User::find($id);
+    try {
+        // $employee = RayEmployee::findOrFail($id);
+        $user = User::findOrFail($id);
+        $user->delete(); 
 
-    if (!$user) {
-        return response()->json(['error' => 'User not found.'], 404);
+        return response()->json(['success' => 'user deleted successfully.']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => 'There was an error deleting the section: ' . $e->getMessage()], 400);
     }
-
-    $user->delete();
-    return response()->json(['success' => 'User deleted successfully.']);
 }
-
     public function login(Request $request)
 {
     // Validate the incoming request

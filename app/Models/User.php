@@ -66,4 +66,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(RayEmployee::class);
     }
+
+    public function LaboratorieEmployee()
+    {
+        return $this->hasOne(LaboratorieEmployee::class);
+    }
+    
+    
 }

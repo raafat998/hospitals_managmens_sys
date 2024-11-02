@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Interfaces\RayEmployee;
+namespace App\Interfaces\LaboratorieEmployee;
 
 use Illuminate\Http\Request;
 
-interface RayEmployeeRepositoryInterface
+interface LaboratorieEmployeeRepositoryInterface
 {
     public function index();
 

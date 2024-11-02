@@ -2,7 +2,9 @@
 
 @section('head')
     @yield('subhead')
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-is/18.3.1/cjs/react-is.production.min.js" integrity="sha512-7tmQCIngBCyNlDtDg31ZalbtoWQbMtqK+8Yo2Vgk6DFbC4YTFfqmLzuSwYWqMnmpmuwZBMlp/POm8ES1PHUwcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 @endsection
 
 @section('content')
@@ -27,6 +29,7 @@
                             <a href="{{ isset($menu['route_name']) ? route($menu['route_name'], $menu['params']) : 'javascript:;' }}" class="{{ $first_level_active_index == $menuKey ? 'side-menu side-menu--active' : 'side-menu' }}">
                                 <div class="side-menu__icon">
                                     <i data-lucide="{{ $menu['icon'] }}"></i>
+                                    <i class="{{ $menu['icon'] }}" style="color: #f7be02;"></i>
                                 </div>
                                 <div class="side-menu__title">
                                     {{ $menu['title'] }}

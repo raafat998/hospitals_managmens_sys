@@ -57,7 +57,7 @@
                         <td>{{ $Patient->name }}</td>
                         <td>{{ $Patient->email }}</td>
                         <td>{{ $Patient->Date_Birth }}</td>
-                        <td>{{ $Patient->Phone }}</td>
+                        <td>{{ $Patient->phone}}</td>
                         <td>{{ $Patient->Gender == 'M' ? 'Male' : 'Female' }}</td>
                         <td>{{ $Patient->Blood_Group }}</td>
                       

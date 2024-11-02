@@ -1,8 +1,6 @@
 @extends('layout/side-menu')
 
-@section('subhead')
-    <title>{{ __('ray_employee.Create New Employee') }}</title>
-@endsection
+
 
 @section('subcontent')
 <div class="intro-y box">
@@ -71,36 +69,8 @@
                     @enderror
                 </div>
 
-                <!-- Section Field -->
-                <div class="mt-3">
-                    <label for="section_id" class="form-label">{{ trans('ray_employee.section') }}</label>
-                    <select id="section_id" class="form-control @error('section_id') is-invalid @enderror" name="section_id" required>
-                        <option value="" disabled selected>------</option>
-                        @foreach($sections as $section)
-                            <option value="{{ $section->id }}">{{ $section->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('section_id')
-                        <span class="invalid-feedback">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
 
-                <!-- Appointments Field -->
-                <div class="mt-3">
-                    <label for="appointments" class="form-label">{{ trans('ray_employee.appointments') }}</label>
-                    <select id="appointments" class="form-control tom-select @error('appointments') is-invalid @enderror" name="appointments[]" multiple required>
-                        @foreach($appointments as $appointment)
-                            <option value="{{ $appointment->id }}">{{ $appointment->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('appointments')
-                        <span class="invalid-feedback">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+
 
                 <!-- Photo Field -->
                 <div class="mt-3">

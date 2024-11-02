@@ -50,7 +50,11 @@ return [
         ],
         'ray_employees' => [
             'driver' => 'session',
-            'provider' => 'patients',
+            'provider' => 'ray_employees',
+        ],
+        'lab_employees' => [
+            'driver' => 'session',
+            'provider' => 'lab_employees',
         ],
     ],
 
@@ -88,6 +92,11 @@ return [
         'ray_employees' => [
             'driver' => 'eloquent',
             'model' => App\Models\RayEmployee::class,
+        ],
+
+        'lab_employees' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\LaboratorieEmployee::class,
         ],
     ],
 

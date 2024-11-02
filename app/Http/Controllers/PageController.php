@@ -56,6 +56,18 @@ class PageController extends Controller
         ]);
     }
 
+    public function dashboardOverview_lab_employee()
+    {
+        return view('pages/dashboard-overview-lab-employee', [
+            // Specify the base layout.
+            // Eg: 'side-menu', 'simple-menu', 'top-menu', 'login'
+            // The default value is 'side-menu'
+
+            // 'layout' => 'side-menu'
+        ]);
+    }
+
+    
 
     /**
      * Show specified view.

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repository\LaboratorieEmployee\LaboratorieEmployeeRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repository\Doctors\DoctorRepository;
 use App\Repository\Finance\PaymentRepository;
@@ -27,6 +28,7 @@ use App\Interfaces\Services\SingleServiceRepositoryInterface;
 use App\Interfaces\RayEmployee\RayEmployeeRepositoryInterface;
 use App\Interfaces\doctor_dashboard\InvoicesRepositoryInterface;
 use App\Interfaces\doctor_dashboard\DiagnosisRepositoryInterface;
+use App\Interfaces\LaboratorieEmployee\LaboratorieEmployeeRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -61,8 +63,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(RayEmployeeRepositoryInterface::class, RayEmployeeRepository::class);
 
-        // $this->app->bind(LaboratoriesRepositoryInterface::class, LaboratoriesRepository::class);
-
+        $this->app->bind(LaboratorieEmployeeRepositoryInterface::class, LaboratorieEmployeeRepository::class);
 
         //Dashboard_Ray_Employee
 

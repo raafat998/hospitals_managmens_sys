@@ -1,40 +1,44 @@
 <?php
 
-namespace App\Repository\RayEmployee;
+namespace App\Repository\LaboratorieEmployee;
+
 use App\Models\User;
-use App\Models\RayEmployee;
-use Illuminate\Support\Arr;
+
+use App\Models\LaboratorieEmployee;
+use Illuminate\Support\Facades\Hash;
+use App\Interfaces\LaboratorieEmployee\LaboratorieEmployeeRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str; 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\UserApprovedNotification;
 use App\Notifications\UserNotApprovedNotification;
-use App\Interfaces\Doctors\DoctorRepositoryInterface;
-use App\Interfaces\RayEmployee\RayEmployeeRepositoryInterface;
 
-class RayEmployeeRepository implements RayEmployeeRepositoryInterface
+
+
+class LaboratorieEmployeeRepository implements LaboratorieEmployeeRepositoryInterface
 {
 
     public function index()
     {
-        $ray_employees = RayEmployee::all();
-        return view('ray_employees.index',compact('ray_employees'));
+        $laboratorie_employees = LaboratorieEmployee::all();
+        return view('laboratorie_employee.index',compact('laboratorie_employees'));
     }
+
 
     public function create()
     {
 
-        return view('ray_employees.create');
+        return view('laboratorie_employee.create');
     }
     public function edit($id)
     {
-        $ray_employee = RayEmployee::findOrFail($id);
-        return view('ray_employees.edit',compact('ray_employee'));
+        $lab_employee = LaboratorieEmployee::findOrFail($id);
+        return view('laboratorie_employee.edit',compact('lab_employee'));
     }
+
+
     public function store($request)
     {
         try {
@@ -43,25 +47,21 @@ class RayEmployeeRepository implements RayEmployeeRepositoryInterface
             $user->name = $request->name; 
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
-            $user->role_id = 4; 
+            $user->role_id = 5; 
             $user->active = 1; 
             $user->save(); 
             
-            // $ray_employee = new RayEmployee();
-            // $ray_employee->name = $request->name;
-            // $ray_employee->email = $request->email;
-            // $ray_employee->password = Hash::make($request->password);
-            // $ray_employee->save();
 
-            $ray_employee =new RayEmployee();
-            $ray_employee->id = $user->id; 
-            $ray_employee->user_id = $user->id; 
-            $ray_employee->name =  $user->name;
-            $ray_employee->email =  $user->email;
-            $ray_employee->phone = $request->phone;
-            $ray_employee->password = Hash::make($request->password); 
-            $ray_employee->role_id=4;
-            $ray_employee->save();
+
+            $lab_employee =new LaboratorieEmployee();
+            $lab_employee->id = $user->id; 
+            $lab_employee->user_id = $user->id; 
+            $lab_employee->name =  $user->name;
+            $lab_employee->email =  $user->email;
+            $lab_employee->phone = $request->phone;
+            $lab_employee->password = Hash::make($request->password); 
+            $lab_employee->role_id=5;
+            $lab_employee->save();
             
 
 
@@ -69,12 +69,12 @@ class RayEmployeeRepository implements RayEmployeeRepositoryInterface
                 $EmployeeName = Str::slug($request->name);
                 $extension = $request->file('photo')->getClientOriginalExtension();
                 $filename = $EmployeeName . '.' . $extension;
-                $path = $request->file('photo')->storeAs('public/properties/Ray_employee', $filename);
-                $ray_employee->image()->updateOrCreate([], ['filename' => $filename]);
+                $path = $request->file('photo')->storeAs('public/properties/lab_employee', $filename);
+                $lab_employee->image()->updateOrCreate([], ['filename' => $filename]);
             }
               DB::commit();
             session()->flash('add');
-            return redirect()->route('ray_employee.index');
+            return redirect()->route('laboratorie_employee.index');
         } catch (\Exception $e) {
             DB::rollback();
             dd($e->getMessage());
@@ -85,7 +85,7 @@ class RayEmployeeRepository implements RayEmployeeRepositoryInterface
     public function update($request, $id)
     {
 
-        $ray_employee = RayEmployee::findOrFail($id);
+        $lab_employee = LaboratorieEmployee::findOrFail($id);
     
         // تحقق من القيم المستلمة
         $validatedData = $request->validate([
@@ -96,21 +96,21 @@ class RayEmployeeRepository implements RayEmployeeRepositoryInterface
         ]);
         
 
-        $ray_employee->name = $validatedData['name'];
-        $ray_employee->email = $validatedData['email'];
-        $ray_employee->phone = $validatedData['phone'];
+        $lab_employee->name = $validatedData['name'];
+        $lab_employee->email = $validatedData['email'];
+        $lab_employee->phone = $validatedData['phone'];
 
         // معالجة الصورة
         if ($request->hasFile('photo')) {
             // استرجاع الصورة الحالية
-            $currentImage = $ray_employee->image; // استرجاع الصورة الحالية
+            $currentImage = $lab_employee->image; // استرجاع الصورة الحالية
 
             // حذف الصورة القديمة إذا كانت موجودة
             if ($currentImage) {
                 \Log::info('Current Image: ' . $currentImage->filename); // سجّل اسم الصورة القديمة
 
                 // تحديد المسار القديم
-                $oldImagePath = 'public/properties/Ray_employee/' . $currentImage->filename; // تأكد من إضافة 'public/' هنا
+                $oldImagePath = 'public/properties/lab_employee/' . $currentImage->filename; // تأكد من إضافة 'public/' هنا
                 if (Storage::exists($oldImagePath)) {
                     Storage::delete($oldImagePath); // حذف الصورة القديمة
                     $currentImage->delete(); // حذف السجل من جدول images
@@ -125,16 +125,16 @@ class RayEmployeeRepository implements RayEmployeeRepositoryInterface
             $filename = $doctorName . '.' . $request->file('photo')->getClientOriginalExtension(); // الحصول على امتداد الصورة
 
             // تخزين الصورة الجديدة
-            $request->file('photo')->storeAs('public/properties/Ray_employee', $filename); // استخدام storeAs لتعيين اسم الملف
+            $request->file('photo')->storeAs('public/properties/lab_employee', $filename); // استخدام storeAs لتعيين اسم الملف
 
             // حفظ اسم الصورة في جدول images
-            $ray_employee->image()->updateOrCreate([], ['filename' => $filename]);
+            $lab_employee->image()->updateOrCreate([], ['filename' => $filename]);
 
             \Log::info('Uploaded New Image: ' . $filename); // سجّل اسم الصورة الجديدة
         }
-        $ray_employee->save();
+        $lab_employee->save();
 
-        return redirect()->route('ray_employee.index')->with('success', 'employee updated successfully.');
+        return redirect()->route('laboratorie_employee.index')->with('success', 'Doctor updated successfully.');
 
     }
 
@@ -168,7 +168,7 @@ class RayEmployeeRepository implements RayEmployeeRepositoryInterface
 
     public function updateStatus(Request $request, $id)
 {
-    $employee = RayEmployee::findOrFail($id);
+    $employee = LaboratorieEmployee::findOrFail($id);
 
     $employee->active = $request->input('active');
     $employee->save();
@@ -189,6 +189,4 @@ class RayEmployeeRepository implements RayEmployeeRepositoryInterface
 
     return redirect()->back()->with('success', 'Doctor status updated successfully!');
 }
-
-    
 }

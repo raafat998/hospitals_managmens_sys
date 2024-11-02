@@ -22,6 +22,11 @@ class RayEmployeeController extends Controller
     }
 
 
+    public function create()
+    {
+        return $this->employee->create();
+    }
+
 
     public function store(Request $request)
     {
@@ -36,8 +41,20 @@ class RayEmployeeController extends Controller
     }
 
 
+    public function updateStatus(Request $request, $id){
+
+        return $this->employee->updateStatus($request, $id);
+    }
+
     public function destroy($id)
     {
         return $this->employee->destroy($id);
     }
+
+    public function edit($id)
+    {
+        // استدعاء دالة edit من المستودع (repository)
+        return $this->employee->edit($id);
+    }
+    
 }

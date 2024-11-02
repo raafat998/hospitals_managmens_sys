@@ -10,12 +10,13 @@
             display: inline-block; 
         }
     </style>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 @endsection
 
 @section('subcontent')
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
     <h2 class="intro-y text-lg font-medium mt-10">User List</h2>
     <div class="main-content" style="overflow-x: auto; min-height: 100vh;">
@@ -144,43 +145,40 @@
     </div>
 
     <script>
-       function deleteSection(actionUrl) {
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // Send delete request via AJAX
-            fetch(actionUrl, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    Swal.fire('Deleted!', 'The section has been deleted.', 'success').then(() => {
-                        window.location.href = "{{ route('Section.index') }}";
+     function deleteUser(actionUrl) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch(actionUrl, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire('Deleted!', data.success, 'success').then(() => {
+                                window.location.href = "{{ route('user-mangment') }}";
+                            });
+                        } else {
+                            Swal.fire('Failed', data.message || 'Something went wrong!', 'error');
+                        }
+                    })
+                    .catch(error => {
+                        Swal.fire('Failed', 'An error occurred while deleting!', 'error');
                     });
-                } else {
-                    return response.json().then(data => {
-                        Swal.fire('Error!', data.error || 'There was an error deleting the section.', 'error');
-                    });
                 }
-            })
-            .catch(error => {
-                Swal.fire('Error!', 'There was an error deleting the section.', 'error');
             });
         }
-    });
-}
-
 
         document.getElementById('searchInput').addEventListener('keyup', function() {
             var searchText = this.value.toLowerCase();

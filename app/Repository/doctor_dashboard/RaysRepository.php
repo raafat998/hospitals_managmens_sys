@@ -41,15 +41,18 @@ class RaysRepository implements RaysRepositoryInterface
         }
     }
 
-    public function destroy($id)
-    {
-        try {
-            Ray ::destroy($id);
-            session()->flash('delete');
-            return redirect()->back();
-        }
-        catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-        }
-    }
+    // public function destroy($id)
+    // {
+    //     try {
+    //         Ray ::destroy($id);
+    //         session()->flash('delete');
+    //         return redirect()->back();
+    //     }
+    //     catch (\Exception $e) {
+    //         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+    //     }
+    // }
+
+
+    
 }

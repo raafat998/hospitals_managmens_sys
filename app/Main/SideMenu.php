@@ -30,6 +30,8 @@ class SideMenu
                 return self::getGuestMenu();
             case 4:
                 return self::getRayEmployeeMenu();
+            case 5:
+                return self::getLabEmployeeMenu();
             default:
                 return []; // إرجاع قائمة فارغة لأي دور آخر
         }
@@ -179,6 +181,23 @@ class SideMenu
                         ],
                     ],
 
+                    'ooo' => [
+                            'icon' => 'fa-solid fa-x-ray fa-2x',  // فقط اسم الأيقونة بدون HTML
+                            'title' => 'x ray section ',
+                            'route_name' => 'ray_employee.index',
+                            'params' => [
+                                'layout' => 'side-menu'
+                            ],
+                        ],
+
+                        'lab' => [
+                            'icon' => 'fa-solid fa-flask-vial fa-bounce fa-2x',  // فقط اسم الأيقونة بدون HTML
+                            'title' => 'laboratorie_employee',
+                            'route_name' => 'laboratorie_employee.index',
+                            'params' => [
+                                'layout' => 'side-menu'
+                            ],
+                        ],
                         'Accounting-Department' => [
                         'icon' => 'users',
                         'title' => 'Accounting',
@@ -200,8 +219,11 @@ class SideMenu
                                 'title' => 'Payment voucher'
                             ],
                         ],
+
+                       
                         
                     ],
+                    
                     
                     
                 ];
@@ -267,7 +289,17 @@ class SideMenu
     private static function getRayEmployeeMenu(){
 
         return [
+            
             'devider',
+            'forms' => [
+                'icon' => 'home',
+                'title' => 'Dashboard',
+                'route_name' => 'dashboard-ray-emplyee',
+                'params' => [
+                    'layout' => 'side-menu'
+                ],
+                
+            ],
             'Consultations' => [
                 'icon' => 'users',
                 'title' => 'Diagnostics',
@@ -297,11 +329,51 @@ class SideMenu
             
             ],
         ];
+    }
 
-        
 
-                        
+    private static function getLabEmployeeMenu(){
+
+        return [
+            
+            'devider',
+            'forms' => [
+                'icon' => 'home',
+                'title' => 'Dashboard',
+                'route_name' => 'dashboard-ray-emplyee',
+                'params' => [
+                    'layout' => 'side-menu'
+                ],
+                
+            ],
+            'Consultations' => [
+                'icon' => 'users',
+                'title' => 'Diagnostics',
+                'sub_menu' => [
+                    'Diagnostics-List' => [
+                        'icon' => '',
+                        'route_name' => 'invoices_ray_employee.index',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => 'Diagnostics in progress List'
+                    ],
+
+                    'C-Diagnostics-List' => [
+                        'icon' => '',
+                        'route_name' => 'invoices_ray_employee.create',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => ' Completed Diagnostics '
+                    ],
                     
 
+                
+
+                ],
+            
+            ],
+        ];
     }
 }

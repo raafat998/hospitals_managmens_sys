@@ -3,6 +3,8 @@
 
 @section('subhead')
     <title>Dashboard - Midone - Tailwind HTML Admin Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 @endsection
 
 @section('subcontent')
@@ -18,19 +20,52 @@
                         </a>
                     </div>
                     <div class="grid grid-cols-12 gap-6 mt-5">
+                        
                         <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="shopping-cart" class="report-box__icon text-primary"></i>
+                                        <i class="fa-solid fa-file-invoice-dollar fa-beat fa-3x" style="color: #56c869;"></i>
+                                                        <div class="ml-auto">
+                                            <div class="report-box__indicator bg-danger tooltip cursor-pointer" title="2% Lower than last month">
+                                                2% <i data-lucide="chevron-down" class="w-4 h-4 ml-0.5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Invoice::where('doctor_id',auth()->user()->id)->where('invoice_status',3)->count()}}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Compleate Diagnostics</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                            <div class="report-box zoom-in">
+                                <div class="box p-5">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-file-invoice-dollar fa-beat fa-3x" style="color: #ca3636;"></i>                                        <div class="ml-auto">
+                                            <div class="report-box__indicator bg-success tooltip cursor-pointer" title="22% Higher than last month">
+                                                22% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Invoice::where('doctor_id',auth()->user()->id)->where('invoice_status',1)->count()}}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Diagnostics In Progress</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                            <div class="report-box zoom-in">
+                                <div class="box p-5">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-file-invoice-dollar fa-beat fa-3x" style="color: #ffd500;"></i> 
                                         <div class="ml-auto">
                                             <div class="report-box__indicator bg-success tooltip cursor-pointer" title="33% Higher than last month">
                                                 33% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">4.710</div>
-                                    <div class="text-base text-slate-500 mt-1">Item Sales</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Invoice::where('doctor_id',auth()->user()->id)->where('invoice_status',2)->count()}}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Reviews Diagnostics </div>
                                 </div>
                             </div>
                         </div>
@@ -38,47 +73,15 @@
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="credit-card" class="report-box__icon text-pending"></i>
+                                        <i class="fa-solid fa-file-invoice-dollar fa-beat fa-3x" style="color: #2200ff;"></i> 
                                         <div class="ml-auto">
                                             <div class="report-box__indicator bg-danger tooltip cursor-pointer" title="2% Lower than last month">
                                                 2% <i data-lucide="chevron-down" class="w-4 h-4 ml-0.5"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">3.721</div>
-                                    <div class="text-base text-slate-500 mt-1">New Orders</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                            <div class="report-box zoom-in">
-                                <div class="box p-5">
-                                    <div class="flex">
-                                        <i data-lucide="monitor" class="report-box__icon text-warning"></i>
-                                        <div class="ml-auto">
-                                            <div class="report-box__indicator bg-success tooltip cursor-pointer" title="12% Higher than last month">
-                                                12% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">2.149</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Products</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                            <div class="report-box zoom-in">
-                                <div class="box p-5">
-                                    <div class="flex">
-                                        <i data-lucide="user" class="report-box__icon text-success"></i>
-                                        <div class="ml-auto">
-                                            <div class="report-box__indicator bg-success tooltip cursor-pointer" title="22% Higher than last month">
-                                                22% <i data-lucide="chevron-up" class="w-4 h-4 ml-0.5"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">152.040</div>
-                                    <div class="text-base text-slate-500 mt-1">Unique Visitor</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Invoice::where('doctor_id',auth()->user()->id)->count()}}</div>
+                                    <div class="text-base text-slate-500 mt-1">Total Diagnostics</div>
                                 </div>
                             </div>
                         </div>
