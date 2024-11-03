@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Repository\LaboratorieEmployee\LaboratorieEmployeeRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Repository\Doctors\DoctorRepository;
 use App\Repository\Finance\PaymentRepository;
@@ -23,11 +22,14 @@ use App\Repository\doctor_dashboard\InvoicesRepository;
 use App\Repository\doctor_dashboard\DiagnosisRepository;
 use App\Interfaces\Ambulances\AmbulanceRepositoryInterface;
 use App\Interfaces\insurances\insuranceRepositoryInterface;
+use App\Repository\doctor_dashboard\LaboratoriesRepository;
 use App\Interfaces\doctor_dashboard\RaysRepositoryInterface;
 use App\Interfaces\Services\SingleServiceRepositoryInterface;
 use App\Interfaces\RayEmployee\RayEmployeeRepositoryInterface;
 use App\Interfaces\doctor_dashboard\InvoicesRepositoryInterface;
 use App\Interfaces\doctor_dashboard\DiagnosisRepositoryInterface;
+use App\Interfaces\doctor_dashboard\LaboratoriesRepositoryInterface;
+use App\Repository\LaboratorieEmployee\LaboratorieEmployeeRepository;
 use App\Interfaces\LaboratorieEmployee\LaboratorieEmployeeRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -61,6 +63,8 @@ class RepositoryServiceProvider extends ServiceProvider
     
         $this->app->bind(RaysRepositoryInterface::class, RaysRepository::class);
 
+        $this->app->bind(LaboratoriesRepositoryInterface::class, LaboratoriesRepository::class);
+
         $this->app->bind(RayEmployeeRepositoryInterface::class, RayEmployeeRepository::class);
 
         $this->app->bind(LaboratorieEmployeeRepositoryInterface::class, LaboratorieEmployeeRepository::class);
@@ -68,8 +72,13 @@ class RepositoryServiceProvider extends ServiceProvider
         //Dashboard_Ray_Employee
 
         $this->app->bind('App\Interfaces\Dashboard_Ray_Employee\InvoicesRepositoryInterface',
-                'App\Repository\Dashboard_Ray_Employee\InvoicesRepository');
-    }
+         'App\Repository\Dashboard_Ray_Employee\InvoicesRepository');
+   
+           //Dashboard_Laboratorie_Employee
+           $this->app->bind('App\Interfaces\Dashboard_Laboratorie_Employee\InvoicesRepositoryInterface',
+           'App\Repository\Dashboard_Laboratorie_Employee\InvoicesRepository');
+
+            }
 
     /**
      * Bootstrap services.

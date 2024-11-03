@@ -38,4 +38,6 @@ class Patient extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class);
     }
+
+    
 }

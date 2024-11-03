@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Repository\doctor_dashboard;
-use App\Models\Ray;
-use App\Interfaces\doctor_dashboard\RaysRepositoryInterface;
 
-class RaysRepository implements RaysRepositoryInterface{
+use App\Models\Laboratorie;
+use App\Interfaces\doctor_dashboard\LaboratoriesRepositoryInterface;
+
+class LaboratoriesRepository implements LaboratoriesRepositoryInterface
+{
 
     public function store($request)
     {
-
-       
         try {
-            Ray::create([
+
+            Laboratorie::create([
                 'description'=>$request->description,
                 'invoice_id'=>$request->invoice_id,
                 'patient_id'=>$request->patient_id,
@@ -28,8 +29,8 @@ class RaysRepository implements RaysRepositoryInterface{
     public function update($request, $id)
     {
         try {
-            $Ray = Ray::findOrFail($id);
-            $Ray->update([
+            $Laboratorie = Laboratorie::findOrFail($id);
+            $Laboratorie->update([
                 'description' => $request->description,
             ]);
             session()->flash('edit');
@@ -43,7 +44,7 @@ class RaysRepository implements RaysRepositoryInterface{
     public function destroy($id)
     {
         try {
-            Ray ::destroy($id);
+            Laboratorie ::destroy($id);
             session()->flash('delete');
             return redirect()->back();
         }
@@ -51,7 +52,4 @@ class RaysRepository implements RaysRepositoryInterface{
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-
-
-    
 }

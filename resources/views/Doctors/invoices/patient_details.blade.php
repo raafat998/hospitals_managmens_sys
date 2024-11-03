@@ -103,12 +103,12 @@
 
                                         {{-- End Invices Patient --}}
 
-
+                                       
 
                                         {{-- Start Receipt Patient  --}}
 
                                         <div class="tab-pane" id="tab3">
-                                            3
+                                            @include('Doctors.invoices.lab_table')
                                         </div>
 
                                         {{-- End Receipt Patient  --}}

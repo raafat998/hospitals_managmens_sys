@@ -101,7 +101,7 @@
         const routes = {
             adminHome: "{{ route('dashboard-overview-1') }}", 
             doctorHome: "{{ route('alert1') }}", 
-            patientHome: "{{ route('dashboard-overview-3') }}" ,
+            patientHome: "{{ route('dashboard-overview-Patient') }}" ,
             RayEmployeeHome: "{{ route('dashboard-ray-emplyee') }}" ,
             LabEmployeeHome: "{{ route('dashboard-lab-emplyee') }}" ,
 

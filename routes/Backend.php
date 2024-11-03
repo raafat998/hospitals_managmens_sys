@@ -14,16 +14,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Single_service_Controller;
 use App\Http\Controllers\Dashboard\LaboratorieEmployeeController;
 
-// #################### dashboard patients ######################################################################################
-
-Route::group(['middleware' => ['redirect.Patient']], function () {
-
-    Route::get('/patient/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview_Patient'])->name('dashboard-overview-3');
-
-    // أضف أي Routes أخرى تحتاج إلى توجيه الطبيب
-});
-// #################### end dashboard patients ######################################################################################
-
 
 
 

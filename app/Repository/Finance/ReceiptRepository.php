@@ -39,7 +39,7 @@ class ReceiptRepository implements ReceiptRepositoryInterface
             $receipt_accounts = new ReceiptAccount();
             $receipt_accounts->date =date('y-m-d');
             $receipt_accounts->patient_id = $request->patient_id;
-            $receipt_accounts->amount = $request->Debit;
+            $receipt_accounts->Debit = $request->Debit;
             $receipt_accounts->description = $request->description;
             $receipt_accounts->save();
             // store fund_accounts

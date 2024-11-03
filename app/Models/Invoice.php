@@ -21,6 +21,11 @@ class Invoice extends Model
         return $this->belongsTo(Service::class,'Service_id');
     }
 
+    public function GroupService()
+    {
+        return $this->belongsTo(Service::class,'Group_id');
+    }
+
     public function Patient()
     {
         return $this->belongsTo(Patient::class,'patient_id');

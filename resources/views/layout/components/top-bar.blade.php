@@ -126,6 +126,8 @@
                 <img alt="Profile Image" src="{{ Auth::user()->profile_image ? asset(Auth::user()->profile_image) : asset('build/assets/images/' . $fakers[9]['photos'][0]) }}">
             @elseif(Auth::user()->role_id == 2)
                 <img alt="Profile Image" src="{{ Auth::user()->doctor->image ? asset('storage/properties/doctors/' . Auth::user()->doctor->image->filename) : asset('build/assets/images/' . $fakers[9]['photos'][0]) }}">
+                @elseif(Auth::user()->role_id == 3)
+                <img alt="Profile Image" src="{{ Auth::user()->patient->image ? asset('storage/properties/Patient/' . Auth::user()->patient->image->filename) : asset('build/assets/images/' . $fakers[9]['photos'][0]) }}">
             @elseif(Auth::user()->role_id == 4)
                 <img alt="Profile Image" src="{{ Auth::user()->employee->image ? asset('storage/properties/ray_employee/' . Auth::user()->employee->image->filename) : asset('build/assets/images/' . $fakers[9]['photos'][0]) }}">            
                 @elseif(Auth::user()->role_id == 5)

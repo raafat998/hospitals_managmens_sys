@@ -27,7 +27,7 @@ class RedirectPatients
             $roleId = $patient->role_id;
 
             
-            if ($roleId === 2) { 
+            if ($roleId === 3) { 
                 return redirect(RouteServiceProvider::PATIENT_HOME);
             }
         }

@@ -115,7 +115,12 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item">
+                                                <a class="cursor-pointer flex items-center p-2 transition duration-300 ease-in-out rounded-md hover:bg-slate-200/60 dark:bg-darkmode-600 dark:hover:bg-darkmode-400 dropdown-item"
+                                                data-tw-merge 
+                                                data-tw-toggle="modal" 
+                                                data-tw-target="#lab_conversion{{$invoice->id}}" 
+                                                href="#"
+                                                >
                                                     <i class="text-warning fas fa-syringe mr-3"></i>
                                                     &nbsp;&nbsp;تحويل الي المختبر
                                                 </a>
@@ -135,6 +140,7 @@
                         @include('Doctors.invoices.add_diagnosis')
                         @include('Doctors.invoices.add_review')
                         @include('Doctors.invoices.add_xray_conversion')
+                        @include('Doctors.invoices.add_lab_conversion')
                     @endforeach
                 </tbody>
             </table>

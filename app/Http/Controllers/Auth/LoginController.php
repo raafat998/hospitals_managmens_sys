@@ -52,7 +52,7 @@ class LoginController extends Controller
             case 2:
                 return redirect()->route('alert1');
             case 3:
-                return redirect()->route('dashboard-overview-3');
+                return redirect()->route('dashboard-overview-Patient');
             case 4:
                 return redirect()->route('dashboard-ray-emplyee'); 
             case 5:

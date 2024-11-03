@@ -6,9 +6,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Dashboard_Doctor\RayController;
 use App\Http\Controllers\Dashboard_Doctor\InvoiceController;
-
+use App\Http\Controllers\Dashboard_Laboratorie_Employee\InvoiceController as LabEmployeeInvoiceController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard_Doctor\DiagnosticController;
+use App\Http\Controllers\Dashboard_Doctor\LaboratorieController;
 use App\Http\Controllers\Dashboard_Doctor\PatientDetailsController;
 
 
@@ -33,7 +34,7 @@ use App\Http\Controllers\Dashboard_Doctor\PatientDetailsController;
                         //############################# end Diagnostics route ######################################
                        
                         //############################# completed_invoices route ##########################################
-                        Route::get('completed_invoices', [InvoiceController::class,'completedInvoices'])->name('completedInvoices');
+                        Route::get('doctor_completed_invoices', [InvoiceController::class,'completedInvoices'])->name('completedInvoices_d');
                         //############################# end invoices route ################################################
                         
                         //############################# review_invoices route ##########################################
@@ -49,6 +50,13 @@ use App\Http\Controllers\Dashboard_Doctor\PatientDetailsController;
                         Route::resource('rays', RayController::class);
 
                         //############################# end rays route ######################################
+
+                        //############################# Laboratories route ##########################################
+
+                        Route::resource('Laboratories', LaboratorieController::class);
+                        Route::get('show_laboratorie/{id}', [LabEmployeeInvoiceController::class,'view_laboratories'])->name('show.laboratorie');
+
+                        //############################# end Laboratories route ######################################
 
                         //############################# rays route ##########################################
 

@@ -182,7 +182,7 @@ class SideMenu
                     ],
 
                     'ooo' => [
-                            'icon' => 'fa-solid fa-x-ray fa-2x',  // فقط اسم الأيقونة بدون HTML
+                            'icon' => 'fa-solid fa-x-ray fa-2x',  
                             'title' => 'x ray section ',
                             'route_name' => 'ray_employee.index',
                             'params' => [
@@ -191,7 +191,7 @@ class SideMenu
                         ],
 
                         'lab' => [
-                            'icon' => 'fa-solid fa-flask-vial fa-bounce fa-2x',  // فقط اسم الأيقونة بدون HTML
+                            'icon' => 'fa-solid fa-flask-vial fa-bounce fa-2x',  
                             'title' => 'laboratorie_employee',
                             'route_name' => 'laboratorie_employee.index',
                             'params' => [
@@ -248,7 +248,7 @@ class SideMenu
 
                     'C-Diagnostics-List' => [
                         'icon' => '',
-                        'route_name' => 'completedInvoices',
+                        'route_name' => 'completedInvoices_d',
                         'params' => [
                             'layout' => 'side-menu'
                         ],
@@ -277,11 +277,48 @@ class SideMenu
             'devider',
             'information' => [
                 'icon' => 'info',
-                'title' => 'Information',
-                'route_name' => 'info.index',
+                'title' => 'Dashboard',
+                'route_name' => 'dashboard-overview-Patient',
                 'params' => [
                     'layout' => 'side-menu'
                 ],
+            ],
+
+            'Consultations' => [
+                'icon' => 'info',
+                'title' => 'Patient information',
+                
+                'sub_menu' => [
+
+                    'invoices-List' => [
+                        'icon' => '',
+                        'route_name' => 'invoices.patient',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => ' invoices List'
+                    ],
+
+                    'xRay-List' => [
+                        'icon' => '',
+                        'route_name' => 'rays.patient',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => ' X-Ray List'
+                    ],
+
+                    'C-Diagnostics-List' => [
+                        'icon' => 'info',
+                        'route_name' => 'laboratories.patient',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => ' Laboratorie List'
+                    ],
+                    
+                ],
+            
             ],
         ];
     }
@@ -352,7 +389,7 @@ class SideMenu
                 'sub_menu' => [
                     'Diagnostics-List' => [
                         'icon' => '',
-                        'route_name' => 'invoices_ray_employee.index',
+                        'route_name' => 'invoices_laboratorie_employee.index',
                         'params' => [
                             'layout' => 'side-menu'
                         ],
@@ -361,7 +398,7 @@ class SideMenu
 
                     'C-Diagnostics-List' => [
                         'icon' => '',
-                        'route_name' => 'invoices_ray_employee.create',
+                        'route_name' => 'completed_invoices',
                         'params' => [
                             'layout' => 'side-menu'
                         ],

@@ -30,7 +30,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Ray::count()}}</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Laboratorie::count()}}</div>
                                     <div class="text-base text-slate-500 mt-1"> Total Diagnostics</div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Ray::where('case',1)->count()}}</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Laboratorie::where('case',1)->count()}}</div>
                                     <div class="text-base text-slate-500 mt-1"> Total Completed Diagnostics</div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Ray::where('case',0)->count()}}</div>
+                                    <div class="text-3xl font-medium leading-8 mt-6">{{ App\Models\Laboratorie::where('case',0)->count()}}</div>
                                     <div class="text-base text-slate-500 mt-1">Total Diagnostics in progress</div>
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ( App\Models\Ray::latest()->take(5)->get() as $invoice)
+                                @forelse ( App\Models\Laboratorie::latest()->take(5)->get() as $invoice)
 
                                     <tr class="intro-x">
                                         <td>{{ $loop->iteration}}</td>

@@ -70,7 +70,7 @@ class Kernel extends HttpKernel
         'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
         'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
         'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
-        'check.patient'=>\App\Http\Middleware\CheckRayEmployee::class,
+        'check.patient'=>\App\Http\Middleware\CheckPatientRole::class,
         'check.ray.employee'=>\App\Http\Middleware\CheckRayEmployee::class,
         'check.lab.employee'=>\App\Http\Middleware\CheckLabEmployee::class,
         'check.doctor'=>\App\Http\Middleware\CheckDoctorRole::class,
