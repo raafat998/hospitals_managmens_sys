@@ -63,9 +63,13 @@
     <div class="flex flex-col sm:flex-row items-center p-5 border-b border-slate-200/60 dark:border-darkmode-400">
     <h2 class="intro-y text-lg font-medium ">صور فحوصات المختبر</h2>
     <span class="text-muted mt-1 tx-13 mr-2 mb-0">&nbsp; &nbsp;/ &nbsp;&nbsp;{{$laboratorie->Patient->name}}</span>
-
+@if(auth()->user()->role_id != 1)
     <a class="btn btn-primary ml-auto" href="{{route('invoices.index')}}"> Back </a>
-   
+@endif
+
+@if(auth()->user()->role_id == 1)
+<a class="btn btn-primary ml-auto" href="javascript:history.back()">Back</a>
+@endif
     </div>
     <div class="gallery-container mt-3">
         <div class="form-group mb-4">

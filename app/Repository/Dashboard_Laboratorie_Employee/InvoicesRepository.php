@@ -54,11 +54,19 @@ class InvoicesRepository implements InvoicesRepositoryInterface
 
     public function view_laboratories($id)
     {
-        $laboratorie = Laboratorie::findorFail($id);
-        if($laboratorie->doctor_id !=auth()->user()->id){
-            //abort(404);
-            return redirect()->route('error-page');
+      
+        if (auth()->user()->role_id != 1) {
+            return redirect()->route('error-page'); 
         }
+    
+        $laboratorie = Laboratorie::findorFail($id);
+    
+
+        if ($laboratorie->doctor_id != auth()->user()->id && auth()->user()->role_id != 1) {
+            return redirect()->route('error-page'); 
+        }
+    
         return view('dashboard_LaboratorieEmployee.invoices.view_lab', compact('laboratorie'));
     }
+    
 }

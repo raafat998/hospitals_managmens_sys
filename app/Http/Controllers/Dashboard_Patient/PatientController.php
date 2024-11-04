@@ -41,12 +41,34 @@ class PatientController extends Controller
 
     public function viewRays($id)
     {
+        if (auth()->user()->role_id != 1) {
+            return redirect()->route('error-page'); 
+        }
+
         $rays = Ray::findorFail($id);
-        if($rays->patient_id !=auth()->user()->id){
+
+        if($rays->patient_id !=auth()->user()->id &&auth()->user()->role_id != 1){
             return redirect()->route('404');
         }
         return view('Doctors.invoices.patient_view_rays', compact('rays'));
     }
+
+    // public function view_laboratories($id)
+    // {
+      
+    //     if (auth()->user()->role_id != 1) {
+    //         return redirect()->route('error-page'); 
+    //     }
+    
+    //     $laboratorie = Laboratorie::findorFail($id);
+    
+
+    //     if ($laboratorie->doctor_id != auth()->user()->id && auth()->user()->role_id != 1) {
+    //         return redirect()->route('error-page'); 
+    //     }
+    
+    //     return view('dashboard_LaboratorieEmployee.invoices.view_lab', compact('laboratorie'));
+    // }
 
     public function payments(){
 

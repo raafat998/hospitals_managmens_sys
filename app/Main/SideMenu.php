@@ -192,7 +192,7 @@ class SideMenu
 
                         'lab' => [
                             'icon' => 'fa-solid fa-flask-vial fa-bounce fa-2x',  
-                            'title' => 'laboratorie_employee',
+                            'title' => 'laboratorie',
                             'route_name' => 'laboratorie_employee.index',
                             'params' => [
                                 'layout' => 'side-menu'

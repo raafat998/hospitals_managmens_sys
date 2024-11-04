@@ -64,8 +64,8 @@
     <h2 class="intro-y text-lg font-medium ">صور الأشعة</h2>
     <span class="text-muted mt-1 tx-13 mr-2 mb-0">&nbsp; &nbsp;/ &nbsp;&nbsp;{{$rays->Patient->name}}</span>
 
-    <a class="btn btn-primary ml-auto" href="{{route('invoices.index')}}"> Back </a>
    
+ 
     </div>
     <div class="gallery-container mt-3">
         <div class="form-group mb-4">

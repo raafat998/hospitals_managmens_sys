@@ -14,8 +14,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Single_service_Controller;
 use App\Http\Controllers\Dashboard\LaboratorieEmployeeController;
 
+use App\Http\Controllers\Dashboard_Laboratorie_Employee\InvoiceController as LabEmployeeInvoiceController;
 
-
+use App\Http\Controllers\Dashboard_Patient\PatientController as AdminPatientControllerController;
 
 
 // #################### dashboard admin ######################################################################################
@@ -116,6 +117,10 @@ use App\Http\Controllers\Dashboard\LaboratorieEmployeeController;
                     
 
                     //############################# end group_invoices route ######################################
+
+                    Route::get('show_laboratorie/{id}', [LabEmployeeInvoiceController::class,'view_laboratories'])->name('show.laboratorie');
+                    Route::get('admin_view_rays/{id}', [AdminPatientControllerController::class,'viewRays'])->name('admin.rays.view');
+
                 });
 
 

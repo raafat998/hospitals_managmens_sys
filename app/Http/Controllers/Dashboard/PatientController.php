@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Models\Ray;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePatientRequest;
 use App\Interfaces\Patients\PatientRepositoryInterface;
-use Illuminate\Http\Request;
 
 class PatientController extends Controller
 {
@@ -22,6 +23,7 @@ class PatientController extends Controller
         return $this->Patient->index();
     }
 
+    
 
     public function create()
     {
@@ -35,7 +37,14 @@ class PatientController extends Controller
     }
 
 
-   
+    public function viewRays($id)
+    {
+        $rays = Ray::findorFail($id);
+        if($rays->patient_id !=auth()->user()->id){
+            return redirect()->route('404');
+        }
+        return view('Doctors.invoices.patient_view_rays', compact('rays'));
+    }
 
 
     public function edit($id)

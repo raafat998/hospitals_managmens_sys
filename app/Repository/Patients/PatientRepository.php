@@ -2,17 +2,19 @@
 
 
 namespace App\Repository\Patients;
-use App\Models\single_invoice;
+use App\Models\Ray;
 use App\Models\User;
+use App\Models\Invoice;
 use App\Models\Patient;
+use App\Models\Laboratorie;
 use Illuminate\Support\Str;
 use App\Models\PatientAccount;
 use App\Models\ReceiptAccount;
+use App\Models\single_invoice;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
 use App\Interfaces\Patients\PatientRepositoryInterface;
-use App\Models\Invoice;
 
 class PatientRepository implements PatientRepositoryInterface
 {
@@ -157,11 +159,32 @@ class PatientRepository implements PatientRepositoryInterface
     public function Show($id)
     {
         $Patient = patient::findorfail($id);
+        $patient_rays = Ray::where('patient_id',$id)->get();
+        $rays=Ray::where('patient_id', $id)->first();
         $invoices = Invoice::where('patient_id', $id)->get();
         $receipt_accounts = ReceiptAccount::where('patient_id', $id)->get();
         $Patient_accounts = PatientAccount::where('patient_id', $id)->get();
-        return view('Patients.show', compact('Patient', 'invoices', 'receipt_accounts', 'Patient_accounts'));
+        $patient_Laboratories  = Laboratorie::where('patient_id',$id)->get();
+        return view('Patients.show', compact('Patient', 'invoices', 'receipt_accounts', 'Patient_accounts','patient_rays','patient_Laboratories','rays'));
     }
 
+    public function viewRays($id)
+    {
+        $rays = Ray::findorFail($id);
+        if($rays->patient_id !=auth()->user()->id){
+            return redirect()->route('404');
+        }
+        return view('Doctors.invoices.patient_view_rays', compact('rays'));
+    }
+
+    // public function create($id){
+
+        
+
+    //     $patient_records = Diagnostic::where('patient_id',$id)->get();
+    //     $patient_rays = Ray::where('patient_id',$id)->get();
+    //     $patient_Laboratories  = Laboratorie::where('patient_id',$id)->get();
+    //     return view('Doctors.invoices.patient_details',compact('patient_records','patient_rays','patient_Laboratories'));
+    // }
 }
 
