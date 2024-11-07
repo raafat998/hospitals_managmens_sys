@@ -29,6 +29,7 @@ return [
     'price' => 'Examination Price',
     'doctor_photo'=>'doctor Image' ,
     'section'=>'section',
-    'submit'=>'submit'
+    'submit'=>'submit',
+    'dashboard' => 'Dashboard',
 ];
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Events\MyEvent;
 use App\Models\Doctor;
 use App\Models\Invoice;
 use App\Models\Patient;
@@ -167,6 +168,8 @@ class SingleInvoices extends Component
                     $fund_accounts->save();
                     $this->InvoiceSaved =true;
                     $this->show_table =true;
+
+               
                 }
                 DB::commit();
             }

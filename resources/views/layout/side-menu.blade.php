@@ -4,7 +4,14 @@
     @yield('subhead')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-is/18.3.1/cjs/react-is.production.min.js" integrity="sha512-7tmQCIngBCyNlDtDg31ZalbtoWQbMtqK+8Yo2Vgk6DFbC4YTFfqmLzuSwYWqMnmpmuwZBMlp/POm8ES1PHUwcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+   
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.6.0/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-duotone-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-thin.css">
+  
 @endsection
 
 @section('content')
@@ -13,11 +20,20 @@
     <div class="flex mt-[4.7rem] md:mt-0">
         <!-- BEGIN: Side Menu -->
         <nav class="side-nav">
-            <a href="" class="intro-x flex items-center pl-5 pt-4">
+            <a href="{{ route('home_bage') }}" class="intro-x flex items-center pl-5 pt-4">
                 <img alt="Midone - HTML Admin Template" class="w-6" src="{{ asset('build/assets/images/logo.svg') }}">
                 <span class="hidden xl:block text-white text-lg ml-3">
-                    Rubick
+                    TabeebZone
                 </span>
+            </a>
+
+            <a href="{{ route('home_bage') }}" class="intro-x flex items-center pl-5 pt-4">
+                <span> 
+                    <i class="fa-duotone fa-solid fa-backward fa-beat fa-1x" style="--fa-primary-color: #5cb450; --fa-secondary-color: #327b33;"></i>
+                    <span class="fa-duotone fa-solid  fa-beat  fa-1x" style="color: #5cb450;">&nbsp; &nbsp;back to home</span>
+                    
+                </span>
+
             </a>
             <div class=" my-6"></div>
             <ul>

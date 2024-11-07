@@ -25,7 +25,7 @@ class LogoutController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('login');
+        return redirect('Home_Page');
     }
 
     public function logout_user()

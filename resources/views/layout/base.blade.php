@@ -24,6 +24,34 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: CSS Assets-->
     @vite('resources/css/app.css')
     <!-- END: CSS Assets-->
+    <style>
+        .notification {
+        position: relative;
+    }
+    
+    .notification--bullet::before {
+        content: ""; /* يُنشئ النقطة الحمراء */
+        position: absolute;
+        top: -30% !important ;
+        right: -20% !important;
+        background-color: red;
+        border-radius: 50%;
+        width: 15px !important;
+        height: 14px !important;
+    
+    }
+    
+    .notification-count {
+        position: absolute;
+        top: 5%;
+        right: 15%;
+        transform: translate(50%, -50%);
+        color: rgb(255, 255, 255);
+        font-size: 11px;
+        font-weight: bold;
+    }
+    
+    </style>
 </head>
 <!-- END: Head -->
 

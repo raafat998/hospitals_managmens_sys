@@ -11,7 +11,7 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=["your-google-map-api"]&libraries=places"></script>
         @vite('resources/js/app.js')
         <!-- END: JS Assets-->
-
+        <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
         @yield('script')
     </body>
 @endsection

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
+use App\Http\Livewire\Chat\Createchat;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard_Patient\PatientController;
 use App\Http\Controllers\Dashboard_Doctor\DiagnosticController;
@@ -32,6 +33,12 @@ Route::group(['middleware' => ['redirect.Patient','check.patient']], function ()
             Route::get('view_rays/{id}', [PatientController::class,'viewRays'])->name('rays.view');
             Route::get('payments', [PatientController::class,'payments'])->name('payments.patient');
             //############################# end patients route ######################################
+
+        //############################# Chat route ##########################################
+         Route::get('list/doctors',Createchat::class)->name('list.doctors');
+
+         //############################# end Chat route ######################################
+ 
 });
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\MyEvent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Dashboard\DoctorController;
@@ -12,11 +13,12 @@ use App\Http\Controllers\Dashboard\PaymentAccountController;
 use App\Http\Controllers\Dashboard\ReceiptAccountController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Single_service_Controller;
+
 use App\Http\Controllers\Dashboard\LaboratorieEmployeeController;
 
-use App\Http\Controllers\Dashboard_Laboratorie_Employee\InvoiceController as LabEmployeeInvoiceController;
-
+use App\Http\Controllers\Dashboard\appointments\AppointmentController;
 use App\Http\Controllers\Dashboard_Patient\PatientController as AdminPatientControllerController;
+use App\Http\Controllers\Dashboard_Laboratorie_Employee\InvoiceController as LabEmployeeInvoiceController;
 
 
 // #################### dashboard admin ######################################################################################
@@ -27,7 +29,6 @@ use App\Http\Controllers\Dashboard_Patient\PatientController as AdminPatientCont
                     Route::group(['middleware' => ['auth']], function () {
                    
                     Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
-
                         Route::get('/admin/dashboard', [\App\Http\Controllers\PageController::class,'dashboardOverview_admin'])->name('dashboard-overview-1');
                         Route::patch('/User-update/{user}', [UserController::class, 'update'])->name('users.update');
                         Route::get('User-edit/{user}', [UserController::class, 'edit'])->name('users.edit');
@@ -118,6 +119,14 @@ use App\Http\Controllers\Dashboard_Patient\PatientController as AdminPatientCont
 
                     //############################# end group_invoices route ######################################
 
+                    //############################# appointments route ##########################################
+
+                    Route::get('appointments',[AppointmentController::class,'index'])->name('appointments.index');
+                    Route::put('appointments/approval/{id}',[AppointmentController::class,'approval'])->name('appointments.approval');
+                    Route::get('appointments/approval',[AppointmentController::class,'index2'])->name('appointments.index2');
+
+                    
+                    //####################################################################################################
                     Route::get('show_laboratorie/{id}', [LabEmployeeInvoiceController::class,'view_laboratories'])->name('show.laboratorie');
                     Route::get('admin_view_rays/{id}', [AdminPatientControllerController::class,'viewRays'])->name('admin.rays.view');
 

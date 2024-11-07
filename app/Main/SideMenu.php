@@ -43,7 +43,7 @@ class SideMenu
             'devider',
             'forms' => [
                 'icon' => 'home',
-                'title' => 'Dashboard',
+                'title' => __('messages.dashboard'), // ترجمة
                 'route_name' => 'dashboard-overview-1',
                 'params' => [
                     'layout' => 'side-menu'
@@ -52,7 +52,7 @@ class SideMenu
             ],
             'crud' => [
                 'icon' => 'users',
-                'title' => 'User management',
+                'title' => __('messages.user_management'), // ترجمة
                 'sub_menu' => [
                     'user-management' => [
                         'icon' => '',
@@ -60,28 +60,103 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'User Management'
+                        'title' => __('messages.user_management') // ترجمة
                     ],
                     
                 ],
             ],
            'Section' => [
-    'icon' => 'users',
-    'title' => 'Section',
-    'sub_menu' => [
-        'Section-management' => [
-            'icon' => '',
-            'route_name' => 'Section.index',
-            'params' => [
-                'layout' => 'side-menu'
+                'icon' => 'users',
+                'title' => __('messages.section'), // ترجمة
+                'sub_menu' => [
+                    'Section-management' => [
+                        'icon' => '',
+                        'route_name' => 'Section.index',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => __('messages.section') // ترجمة
+                    ],
+                ],
             ],
-            'title' => 'Section'
-        ],
-    ],
-],
+
+            // --------------------------------------------------------------------------------------------------------------------------
+            'Patients' => [
+                'icon' => 'users',
+                'route_name' => 'Patients.index',
+                'params' => [
+                    'layout' => 'side-menu'
+                ],
+                'title' => __('messages.patients') // ترجمة
+            ],
+
+            'Invoices' => [
+                'icon' => 'users',
+                'title' => __('messages.invoices'), // ترجمة
+                'sub_menu' => [
+                    'Single-Invoices' => [
+                        'icon' => 'users',
+                        'route_name' => 'single_invoices',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => __('messages.single_invoices') // ترجمة
+                    ],
+                    'group_invoices' => [
+                        'icon' => 'users',
+                        'route_name' => 'group_invoices',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => __('messages.group_invoices') // ترجمة
+                    ],
+                ],
+            ],
+
+            'ooo' => [
+                'icon' => 'fa-solid fa-x-ray fa-2x',  
+                'title' => __('messages.x_ray_section'), // ترجمة
+                'route_name' => 'ray_employee.index',
+                'params' => [
+                    'layout' => 'side-menu'
+                ],
+            ],
+
+            'lab' => [
+                'icon' => 'fa-solid fa-flask-vial fa-bounce fa-2x',  
+                'title' => __('messages.laboratory'), // ترجمة
+                'route_name' => 'laboratorie_employee.index',
+                'params' => [
+                    'layout' => 'side-menu'
+                ],
+            ],
+            'Accounting-Department' => [
+                'icon' => 'users',
+                'title' => __('messages.accounting'), // ترجمة
+                'sub_menu' => [
+                    'Receipt-voucher' => [
+                        'icon' => 'users',
+                        'route_name' => 'Receipt.index',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => __('messages.receipt_voucher') // ترجمة
+                    ],
+                    'Payment-voucher' => [
+                        'icon' => 'users',
+                        'route_name' => 'Payment.index',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => __('messages.payment_voucher') // ترجمة
+                    ],
+                ],  
+            ],  
+
+            // ----------------------------------------------------------------------------------------------------------------------
             'Doctors' => [
                 'icon' => 'users',
-                'title' => 'Doctors',
+                'title' => __('messages.doctors'), // ترجمة
                 'sub_menu' => [
                     'Doctors-management' => [
                         'icon' => '',
@@ -89,7 +164,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Doctors Management'
+                        'title' => __('messages.doctors_management') // ترجمة
                     ],
                    
                 ],
@@ -97,7 +172,7 @@ class SideMenu
 
             'services' => [
                 'icon' => 'users',
-                'title' => 'services',
+                'title' => __('messages.services'), // ترجمة
                 'sub_menu' => [
                     
                     'single-service' => [
@@ -106,7 +181,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Single Service'
+                        'title' => __('messages.single_service') // ترجمة
                     ],
 
                     'services-group' => [
@@ -115,7 +190,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Services Group'
+                        'title' => __('messages.services_group') // ترجمة
                     ],
 
                     'insurance-companies' => [
@@ -124,7 +199,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'insurance-companies'
+                        'title' => __('messages.insurance_companies') // ترجمة
                     ],
 
                     'ambulance' => [
@@ -133,7 +208,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Ambulance'
+                        'title' => __('messages.ambulance') // ترجمة
                     ],
                     'ambulance-calls' => [
                         'icon' => 'users',
@@ -141,12 +216,11 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Ambulance Calls'
+                        'title' => __('messages.ambulance_calls') // ترجمة
                     ],
                     
                 ],
             ],
-
 
 
                'Patients' => [
@@ -155,12 +229,12 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Patients'
+                        'title' => __('messages.patients') // ترجمة
                     ],
 
                     'Invoices' => [
                         'icon' => 'users',
-                        'title' => 'Invoices',
+                        'title' => __('messages.invoices'), // ترجمة
                         'sub_menu' => [
                             'Single-Invoices' => [
                                 'icon' => 'users',
@@ -168,7 +242,7 @@ class SideMenu
                                 'params' => [
                                     'layout' => 'side-menu'
                                 ],
-                                'title' => 'Single Invoices'
+                                'title' => __('messages.single_invoices') // ترجمة
                             ],
                             'group_invoices' => [
                                 'icon' => 'users',
@@ -176,14 +250,14 @@ class SideMenu
                                 'params' => [
                                     'layout' => 'side-menu'
                                 ],
-                                'title' => 'group invoices'
+                                'title' => __('messages.group_invoices') // ترجمة
                             ],
                         ],
                     ],
 
                     'ooo' => [
                             'icon' => 'fa-solid fa-x-ray fa-2x',  
-                            'title' => 'x ray section ',
+                            'title' => __('messages.x_ray_section'), // ترجمة
                             'route_name' => 'ray_employee.index',
                             'params' => [
                                 'layout' => 'side-menu'
@@ -192,7 +266,7 @@ class SideMenu
 
                         'lab' => [
                             'icon' => 'fa-solid fa-flask-vial fa-bounce fa-2x',  
-                            'title' => 'laboratorie',
+                            'title' => __('messages.laboratory'), // ترجمة
                             'route_name' => 'laboratorie_employee.index',
                             'params' => [
                                 'layout' => 'side-menu'
@@ -200,7 +274,7 @@ class SideMenu
                         ],
                         'Accounting-Department' => [
                         'icon' => 'users',
-                        'title' => 'Accounting',
+                        'title' => __('messages.accounting'), // ترجمة
                         'sub_menu' => [
                             'Receipt-voucher' => [
                                 'icon' => 'users',
@@ -208,7 +282,7 @@ class SideMenu
                                 'params' => [
                                     'layout' => 'side-menu'
                                 ],
-                                'title' => 'Receipt voucher'
+                                'title' => __('messages.receipt_voucher') // ترجمة
                             ],
                             'Payment-voucher' => [
                                 'icon' => 'users',
@@ -216,17 +290,49 @@ class SideMenu
                                 'params' => [
                                     'layout' => 'side-menu'
                                 ],
-                                'title' => 'Payment voucher'
+                                'title' => __('messages.payment_voucher') // ترجمة
                             ],
-                        ],
+                        ],  
+                    ],  
 
-                       
-                        
+
+                    'Appointment' => [
+                        'icon' => 'users',
+                        'title' => __('messages.appointment'), // ترجمة
+                        'sub_menu' => [
+                            
+                                                    'confirmed' => [
+                                                        'icon' => '',
+                                                        'route_name' => 'appointments.index',
+                                                        'params' => [
+                                                            'layout' => 'side-menu'
+                                                        ],
+                                                        'title' => __('messages.confirmed_appointment') // ترجمة
+                                                    ],
+                                                        'Pending' => [
+                                                            'icon' => '',
+                                                            'route_name' => 'user-mangment',
+                                                            'params' => [
+                                                                'layout' => 'side-menu'
+                                                            ],
+                                                            'title' => __('messages.pending_appointment') // ترجمة
+                                                        ],
+                    
+                                                        'Expired' => [
+                                                            'icon' => '',
+                                                            'route_name' => 'user-mangment',
+                                                            'params' => [
+                                                                'layout' => 'side-menu'
+                                                            ],
+                                                            'title' => __('messages.expired_appointment') // ترجمة
+                                                ],
+                                                // Route::get('appointments',[AppointmentController::class,'index'])->name('appointments.index');
+                                                // Route::put('appointments/approval/{id}',[AppointmentController::class,'approval'])->name('appointments.approval');
+                                                // Route::get('appointments/approval',[AppointmentController::class,'index2'])->name('appointments.index2');
+
+                        ],
                     ],
-                    
-                    
-                    
-                ];
+        ];
     }
 
     private static function getUserMenu()
@@ -235,15 +341,15 @@ class SideMenu
             'devider',
             'Consultations' => [
                 'icon' => 'users',
-                'title' => 'Diagnostics',
+                'title' => __('messages.diagnostics'), // ترجمة
                 'sub_menu' => [
                     'Diagnostics-List' => [
                         'icon' => '',
-                        'route_name' => 'invoices.index',
+                        //  'route_name' => 'invoices.index',
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Diagnostics List'
+                        'title' => __('messages.diagnostics_list') // ترجمة
                     ],
 
                     'C-Diagnostics-List' => [
@@ -252,7 +358,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => ' Completed Diagnostics '
+                        'title' => __('messages.completed_diagnostics') // ترجمة
                     ],
                     
                     'Reviews-List' => [
@@ -261,23 +367,20 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Reviews List'
+                        'title' => __('messages.reviews_list') // ترجمة
                     ],
-                
-
                 ],
             ],
         ];
     }
-    
-// dashboard-overview-3
+
     private static function getGuestMenu()
     {
         return [
             'devider',
             'information' => [
                 'icon' => 'info',
-                'title' => 'Dashboard',
+                'title' => __('messages.dashboard'), // ترجمة
                 'route_name' => 'dashboard-overview-Patient',
                 'params' => [
                     'layout' => 'side-menu'
@@ -286,8 +389,7 @@ class SideMenu
 
             'Consultations' => [
                 'icon' => 'info',
-                'title' => 'Patient information',
-                
+                'title' => __('messages.patient_information'), // ترجمة
                 'sub_menu' => [
 
                     'invoices-List' => [
@@ -296,7 +398,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => ' invoices List'
+                        'title' => __('messages.invoices_list') // ترجمة
                     ],
 
                     'xRay-List' => [
@@ -305,7 +407,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => ' X-Ray List'
+                        'title' => __('messages.x_ray_list') // ترجمة
                     ],
 
                     'C-Diagnostics-List' => [
@@ -314,11 +416,37 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => ' Laboratorie List'
+                        'title' => __('messages.laboratory_list') // ترجمة
                     ],
                     
                 ],
             
+            ],
+
+            'Chat' => [
+                'icon' => 'users',
+                'title' => __('messages.conversations'), // ترجمة
+                'sub_menu' => [
+                    'Diagnostics-List' => [
+                        'icon' => '',
+                        'route_name' => 'list.doctors',
+                        'params' => [
+                            
+                        ],
+                        'title' => __('messages.doctor_list') // ترجمة
+                    ],
+
+                    'C-Diagnostics-List' => [
+                        'icon' => '',
+                        // 'route_name' => '',
+                        'params' => [
+                            'layout' => 'side-menu'
+                        ],
+                        'title' => __('messages.last_conversations') // ترجمة
+                    ],
+                    
+                   
+                ],
             ],
         ];
     }
@@ -330,7 +458,7 @@ class SideMenu
             'devider',
             'forms' => [
                 'icon' => 'home',
-                'title' => 'Dashboard',
+                'title' => __('messages.dashboard'), // ترجمة
                 'route_name' => 'dashboard-ray-emplyee',
                 'params' => [
                     'layout' => 'side-menu'
@@ -339,7 +467,7 @@ class SideMenu
             ],
             'Consultations' => [
                 'icon' => 'users',
-                'title' => 'Diagnostics',
+                'title' => __('messages.diagnostics'), // ترجمة
                 'sub_menu' => [
                     'Diagnostics-List' => [
                         'icon' => '',
@@ -347,7 +475,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Diagnostics in progress List'
+                        'title' => __('messages.diagnostics_in_progress') // ترجمة
                     ],
 
                     'C-Diagnostics-List' => [
@@ -356,12 +484,8 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => ' Completed Diagnostics '
+                        'title' => __('messages.completed_diagnostics') // ترجمة
                     ],
-                    
-
-                
-
                 ],
             
             ],
@@ -370,13 +494,13 @@ class SideMenu
 
 
     private static function getLabEmployeeMenu(){
-
+       
         return [
             
             'devider',
             'forms' => [
                 'icon' => 'home',
-                'title' => 'Dashboard',
+                'title' => __('messages.dashboard'), // ترجمة
                 'route_name' => 'dashboard-ray-emplyee',
                 'params' => [
                     'layout' => 'side-menu'
@@ -385,7 +509,7 @@ class SideMenu
             ],
             'Consultations' => [
                 'icon' => 'users',
-                'title' => 'Diagnostics',
+                'title' => __('messages.diagnostics'), // ترجمة
                 'sub_menu' => [
                     'Diagnostics-List' => [
                         'icon' => '',
@@ -393,7 +517,7 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => 'Diagnostics in progress List'
+                        'title' => __('messages.diagnostics_in_progress') // ترجمة
                     ],
 
                     'C-Diagnostics-List' => [
@@ -402,12 +526,8 @@ class SideMenu
                         'params' => [
                             'layout' => 'side-menu'
                         ],
-                        'title' => ' Completed Diagnostics '
+                        'title' => __('messages.completed_diagnostics') // ترجمة
                     ],
-                    
-
-                
-
                 ],
             
             ],

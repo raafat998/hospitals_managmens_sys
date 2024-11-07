@@ -29,6 +29,8 @@ return [
     'price' => 'سعر الكشف',
     'doctor_photo'=>'صورة الطبيب',
     'section'=>'القسم',
-    'submit'=>'تقديم'
+    'submit'=>'تقديم',
+    'dashboard' => 'لوحة التحكم',
+   
 ];
 

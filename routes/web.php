@@ -23,6 +23,10 @@ Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 
 
     Route::get('logout', action: [\App\Http\Controllers\Auth\LogoutController::class, 'logout'])->name('logout-page');
 
+    Route::get('/Home_Page', function () {
+        return view('welcome');
+    })->name('home_bage');
+
 });
 
 

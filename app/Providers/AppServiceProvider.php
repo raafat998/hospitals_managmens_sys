@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
 
         // توجيه إلى /home إذا كان الطلب إلى /
         if (request()->is('/')) {
-            Redirect::to('/admin_dashboard')->send();
+            Redirect::to('/Home_Page')->send();
         }
     }
 }
